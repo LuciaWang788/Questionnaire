@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>填寫民眾政策滿意度調查表單以獲取獎勵</title>
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <style>
+    body {
+      background-color: #f0ebf8;
+      font-family: "sans-serif";
+      margin: 0;
+      padding: 0;
+    }
+    .button-container {
+  max-width: 730px;
+  margin: 20px auto 60px auto;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 1024px) {
+  .button-container {
+    margin-left: 31vw;
+    margin-right: 31vw;
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+}
+
+    h2 {
+      font-family: "Roboto";
+      font-size: 17px;
+      font-weight: normal;
+      margin-top: -10px;
+    }
+    .container, .question {
+      background: #fff;
+      border-radius: 8px;
+      margin: 30px auto;
+      margin-top: 15px;
+      max-width: 680px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 32px 24px 16px 24px;
+    }
+    .container {
+      border-top: 10px solid #673ab7;
+    }
+    .title {
+      font-size: 2.2em;
+      font-weight: normal;
+      margin-bottom: 20px;
+      margin-top: -25px;
+    }
+    .account-row {
+      display: block;
+      font-size: 1em;
+      color: #444;
+      margin-bottom: 18px;
+    }
+    .account-row .email {
+      color: #4285f4;
+      font-family: "Roboto";
+      text-decoration: none;
+      cursor: pointer;
+      margin-right: auto;
+    }
+    .account-row .switch {
+      font-family: "Roboto";
+      font-weight: bold;
+      color: rgb(34, 34, 34);
+    }
+    p {
+      font-family: "Roboto";
+      font-size: 14px;
+    }
+    .error {
+      border: 2px solid #d93025 !important;
+    }
+    .error-text {
+      color: #d93025;
+      font-size: 13px;
+      margin-top: 12px;
+      display: none;
+      align-items: center;
+    }
+    .error-text::before {
+      content: "❗";
+      margin-right: 6px;
+    }
+    .button-continue {
+  background-color: white;
+  color: #673ab7;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+.button-continue:hover {
+  background-color: rgb(216, 216, 216);
+}    .button-continue2 {
+  background-color: rgba(0, 0, 0, 0);
+  color: #673ab7;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.button-continue2:hover {
+  background-color: rgb(216, 216, 216);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+    @media (max-width: 1024px) {
+      .container, .question {
+        margin-left: 32vw;
+        margin-right: 32vw;
+      }
+    }
+    @media (max-width: 480px) {
+      .container, .question {
+        margin-left: 5vw;
+        margin-right: 5vw;
+      }
+    }
+  footer, .footer{
+    font-size: 14px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.66);
+    font-family: "Roboto";
+    display:flex;
+    justify-content: center;
+  }
+@media (max-width: 480px) {
+  .button-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    flex-wrap: wrap;
+  }
+
+  .button-continue,
+  .button-continue2 {
+    flex: 1;
+    min-width: 45%;
+    max-width: 48%;
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+  }
+
+  .button-continue2 {
+    font-size: 14px;
+  }
+}
+
+.button-continue,
+.button-continue2 {
+  box-sizing: border-box;
+}
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  margin-top: -50px;
+  color: rgba(0, 0, 0, 0.66);
+  font-family: "Roboto";
+  text-align: center;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.footer-row p, .footer-row a {
+  white-space: nowrap;
+}
+.sticky-bar {
+  top: 0;
+  z-index: 99;
+  background: #673ab7; /* 或 #673ab7 根據你想要的紫色 */
+  color: #fff;
+  font-size: 1.13em;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  margin: 0 auto;
+  margin-bottom: -15px;
+  max-width: 680px;
+  text-align: left;
+  letter-spacing: 1px;
+}
+@media (max-width: 480px) {
+  .sticky-bar {
+    font-size: 1em;
+    padding: 10px 10px;
+    max-width: 85vw;
+  }
+}
+@media (max-width: 1024px) {
+  .sticky-bar {
+    font-size: 1em;
+    padding: 10px 10px;
+    max-width: 34vw;
+  }
+}
+@media (max-width: 1024px){
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+      width: 30px;
+    }
+}
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+      width: 300px;
+    }
+
+    .input-group input {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #dadce0;
+      font-size: 16px;
+      padding: 10px 0 5px 0;
+      outline: none;
+    }
+
+    .input-group input:focus {
+      border-bottom: 2px solid #673ab7;
+    }
+    input[type="radio"] {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #666;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #673ab7;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+}
+input[type="date"] {
+  font-family: "Roboto";
+  font-size: 16px;
+  padding: 10px 0 5px 0;
+  border: none;
+  border-bottom: 1px solid #dadce0;
+  outline: none;
+  width: 100%;
+}
+input[type="date"]:focus {
+  border-bottom: 2px solid #673ab7;
+}
+
+  </style>
+</head>
+<body>
+  <form id="form">
+    <div class="container">
+      <div class="title">填寫民眾政策滿意度調查表單以獲取獎勵</div>
+      <hr style="color: #757575;">
+      <div class="account-row">
+        <span class="email">登入 Google</span>
+        <span class="switch">即可儲存進度。</span>
+        <span class="email">瞭解詳情</span>
+      </div>
+      <hr style="color: #757575;">
+      <p style="color: rgb(217, 48, 37);">* 表示必填問題</p>
+    </div>
+    <div class="sticky-bar">
+  第一部分:基本資料(請填真實資料)
+</div>
+    <!-- 原本的真實姓名區塊 -->
+<div class="question" id="questionBox1">
+  <h2 id="myText">真實姓名:</h2>
+  <div class="input-group">
+    <input type="text" id="answer1" name="answer1" required placeholder="您的回答">
+  </div>
+  <div id="errorText" class="error-text">這是必填問題</div>
+</div>
+
+<div style="height: -50px;"></div> <!-- 分隔空白 -->
+
+<div class="question" id="questionBox2">
+  <h2>電話號碼:</h2>
+  <div class="input-group">
+    <input type="text" id="answer2" name="answer2" required placeholder="您的回答">
+  </div>
+</div>
+
+<div style="height: -50px;"></div> <!-- 分隔空白 -->
+
+<div class="question" id="questionBox2">
+  <h2>email:</h2>
+  <div class="input-group">
+    <input type="text" id="answer2" name="answer2" required placeholder="您的回答">
+  </div>
+</div>
+<div class="question">
+  <h2>生理性別:</h2>
+  <label style="display: flex; align-items: center; margin-bottom: 12px; font-size: 16px;">
+    <input type="radio" name="性別" style="margin-right: 10px;">
+    男
+  </label>
+  <label style="display: flex; align-items: center; font-size: 16px;">
+    <input type="radio" name="性別" style="margin-right: 10px;">
+    女
+  </label>
+</div>
+<div class="question" id="questionBox3">
+  <h2>實際年齡:</h2>
+  <div class="input-group">
+    <input type="text" id="answer2" name="answer2" required placeholder="您的回答">
+  </div>
+</div>
+<div class="question" id="questionBoxDate">
+  <h2>出生日期:</h2>
+  <div class="input-group">
+    <input type="date" id="answerDate" name="answerDate"  required min="1930-09-01" max="2015-08-31">
+  </div>
+</div>
+  <div class="button-container">
+  <button type="button" class="button-continue" id="continueBtn" disabled>繼續</button>
+  <button type="reset" class="button-continue2">清除表單</button>
+</div>
+<footer class="footer-row">
+  <p>Google 並未認可或建立這項內容。</p>
+  <a href="#" class="footer"><p>聯絡表單擁有者</p></a><p>．</p>
+  <a href="https://policies.google.com/terms" target="_blank" class="footer"><p>服務條款</p></a><p>．</p>
+  <a href="https://policies.google.com/privacy" target="_blank" class="footer"><p>隱私權政策</p></a>
+</footer>
+<footer style="margin-top: -10px;"><p>這份表單很可疑嗎？</p><a href="#" class="footer"><p>報告</p></a></footer>
+<footer><a style="text-decoration: none;display:flex;justify-content: center;" href="https://workspace.google.com/products/forms/?utm_source=product&utm_medium=forms_logo&utm_campaign=forms" target="_blank"><img src="googlelogo.svg" style="width: 100px;"><p style="font-size: 25px;color:rgba(0, 0, 0, 0.66);margin-left:5px;margin-top:20px">表單</p></a></footer>
+</body>
+  <script>
+    // 紅色星號處理
+const p = document.getElementById("myText");
+const text = p.textContent;
+const before = text.slice(0, -1);
+const lastChar = text.slice(-1);
+p.innerHTML = `${before}<span style="color: rgb(217, 48, 37);">${lastChar}</span>`;
+
+const checkbox = document.getElementById("agree");
+const errorText = document.getElementById("errorText");
+const questionBox = document.getElementById("questionBox");
+const continueBtn = document.getElementById("continueBtn");
+
+function toggleErrorAndButton() {
+  if (!checkbox.checked) {
+    errorText.style.display = "flex";
+    questionBox.classList.add("error");
+    continueBtn.disabled = true;
+  } else {
+    errorText.style.display = "none";
+    questionBox.classList.remove("error");
+    continueBtn.disabled = false;
+  }
+}
+
+checkbox.addEventListener("change", toggleErrorAndButton);
+window.addEventListener("DOMContentLoaded", toggleErrorAndButton);
+
+continueBtn.addEventListener("click", function() {
+  if (!continueBtn.disabled) {
+    window.location.href = "3.html";
+  }
+});
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>填寫民眾政策滿意度調查表單以獲取獎勵</title>
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <style>
+    body {
+      background-color: #f0ebf8;
+      font-family: "sans-serif";
+      margin: 0;
+      padding: 0;
+    }
+    .button-container {
+  max-width: 730px;
+  margin: 20px auto 60px auto;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 1024px) {
+  .button-container {
+    margin-left: 31vw;
+    margin-right: 31vw;
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .button-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+}
+
+    h2 {
+      font-family: "Roboto";
+      font-size: 17px;
+      font-weight: normal;
+      margin-top: -10px;
+    }
+    .container, .question {
+      background: #fff;
+      border-radius: 8px;
+      margin: 30px auto;
+      margin-top: 15px;
+      max-width: 680px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 32px 24px 16px 24px;
+    }
+    .container {
+      border-top: 10px solid #673ab7;
+    }
+    .title {
+      font-size: 2.2em;
+      font-weight: normal;
+      margin-bottom: 20px;
+      margin-top: -25px;
+    }
+    .account-row {
+      display: block;
+      font-size: 1em;
+      color: #444;
+      margin-bottom: 18px;
+    }
+    .account-row .email {
+      color: #4285f4;
+      font-family: "Roboto";
+      text-decoration: none;
+      cursor: pointer;
+      margin-right: auto;
+    }
+    .account-row .switch {
+      font-family: "Roboto";
+      font-weight: bold;
+      color: rgb(34, 34, 34);
+    }
+    p {
+      font-family: "Roboto";
+      font-size: 14px;
+    }
+    .error {
+      border: 2px solid #d93025 !important;
+    }
+    .error-text {
+      color: #d93025;
+      font-size: 13px;
+      margin-top: 12px;
+      display: none;
+      align-items: center;
+    }
+    .error-text::before {
+      content: "❗";
+      margin-right: 6px;
+    }
+    .button-continue {
+  background-color: white;
+  color: #673ab7;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+.button-continue:hover {
+  background-color: rgb(216, 216, 216);
+}    .button-continue2 {
+  background-color: rgba(0, 0, 0, 0);
+  color: #673ab7;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.button-continue2:hover {
+  background-color: rgb(216, 216, 216);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+    @media (max-width: 1024px) {
+      .container, .question {
+        margin-left: 32vw;
+        margin-right: 32vw;
+      }
+    }
+    @media (max-width: 480px) {
+      .container, .question {
+        margin-left: 5vw;
+        margin-right: 5vw;
+      }
+    }
+  footer, .footer{
+    font-size: 14px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.66);
+    font-family: "Roboto";
+    display:flex;
+    justify-content: center;
+  }
+@media (max-width: 480px) {
+  .button-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    flex-wrap: wrap;
+  }
+
+  .button-continue,
+  .button-continue2 {
+    flex: 1;
+    min-width: 45%;
+    max-width: 48%;
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+  }
+
+  .button-continue2 {
+    font-size: 14px;
+  }
+}
+
+.button-continue,
+.button-continue2 {
+  box-sizing: border-box;
+}
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  margin-top: -50px;
+  color: rgba(0, 0, 0, 0.66);
+  font-family: "Roboto";
+  text-align: center;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.footer-row p, .footer-row a {
+  white-space: nowrap;
+}
+
+  </style>
+</head>
+<body>
+  <form id="form">
+    <div class="container">
+      <div class="title">填寫民眾政策滿意度調查表單以獲取獎勵</div>
+      <hr style="color: #757575;">
+      <p>為了解民眾對本府各項政策推動成果之滿意程度，
+            協助政府精進施政方向與公共服務品質，我們特別辦理
+            本次「民眾政策滿意度調查」。本調查表單內容涵蓋交通
+            、環境、教育、社會福利、數位服務等主要政策面向，期
+            望能蒐集市民真實的意見與建議，作為政策規劃與施行時
+            的重要參考依據。本問卷全程採匿名填寫，您所提供的所
+            有資料僅用於統計分析與政策改善用途，不會揭露任何個
+            人身份，請放心作答。每一份回饋都是我們進步的動力，
+            也非常感謝您撥冗填寫，讓我們一同打造更貼近民意的優
+            質施政環境。若您在填寫過程中有任何疑問，或希望進一
+            步瞭解調查目的及資料使用方式。<b style="color: red;">填寫完表單</b>送以下禮品<br><br><br>下圖是本問卷贈送之禮品(7-11 $100禮卷)</p>
+            <img style="width: 300px;" src="638632993089306643.png">
+      <hr style="color: #757575;">
+      <div class="account-row">
+        <span class="email">登入 Google</span>
+        <span class="switch">即可儲存進度。</span>
+        <span class="email">瞭解詳情</span>
+      </div>
+      <hr style="color: #757575;">
+      <p style="color: rgb(217, 48, 37);">* 表示必填問題</p>
+    </div>
+    <div class="question" id="questionBox">
+      <h2 id="myText">我已閱讀並瞭解調查說明，並同意繼續填寫 *</h2>
+      <div style="display: flex; align-items: flex-start;">
+        <input type="checkbox" id="agree" name="agree" style="width: 22px; height: 22px; accent-color: #673ab7; margin-right: 12px; margin-top: 2px;">
+        <label for="agree" style="font-size: 1.07em; color: #222;">本人已詳閱上述說明與管理規範，並願意配合遵守！</label>
+      </div>
+      <div id="errorText" class="error-text">這是必填問題</div>
+    </div>
+  <div class="button-container">
+  <button type="button" class="button-continue" id="continueBtn" disabled>繼續</button>
+  <button type="reset" class="button-continue2">清除表單</button>
+</div>
+<footer class="footer-row">
+  <p>Google 並未認可或建立這項內容。</p>
+  <a href="#" class="footer"><p>聯絡表單擁有者</p></a><p>．</p>
+  <a href="https://policies.google.com/terms" target="_blank" class="footer"><p>服務條款</p></a><p>．</p>
+  <a href="https://policies.google.com/privacy" target="_blank" class="footer"><p>隱私權政策</p></a>
+</footer>
+<footer style="margin-top: -10px;"><p>這份表單很可疑嗎？</p><a href="#" class="footer"><p>報告</p></a></footer>
+<footer><a style="text-decoration: none;display:flex;justify-content: center;" href="https://workspace.google.com/products/forms/?utm_source=product&utm_medium=forms_logo&utm_campaign=forms" target="_blank"><img src="googlelogo.svg" style="width: 100px;"><p style="font-size: 25px;color:rgba(0, 0, 0, 0.66);margin-left:5px;margin-top:20px">表單</p></a></footer>
+</body>
+  <script>
+    // 紅色星號處理
+const p = document.getElementById("myText");
+const text = p.textContent;
+const before = text.slice(0, -1);
+const lastChar = text.slice(-1);
+p.innerHTML = `${before}<span style="color: rgb(217, 48, 37);">${lastChar}</span>`;
+
+const checkbox = document.getElementById("agree");
+const errorText = document.getElementById("errorText");
+const questionBox = document.getElementById("questionBox");
+const continueBtn = document.getElementById("continueBtn");
+
+function toggleErrorAndButton() {
+  if (!checkbox.checked) {
+    errorText.style.display = "flex";
+    questionBox.classList.add("error");
+    continueBtn.disabled = true;
+  } else {
+    errorText.style.display = "none";
+    questionBox.classList.remove("error");
+    continueBtn.disabled = false;
+  }
+}
+
+checkbox.addEventListener("change", toggleErrorAndButton);
+window.addEventListener("DOMContentLoaded", toggleErrorAndButton);
+
+continueBtn.addEventListener("click", function() {
+  if (!continueBtn.disabled) {
+    window.location.href = "2.html";
+  }
+});
+
+  </script>
+</body>
+</html>
